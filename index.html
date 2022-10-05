@@ -11,24 +11,25 @@
 </head>
 
 <body>
-  <main>
     <div class="wrap">
       <form id="login-form" method="post" action="#" class="login-box">
         <div class="header">
           <p>
             Freddy's Artisanal Halloween Candy Shop
           </p>
-          <img src="./assets/Freddys_Logo.svg" alt="freddys logo" />
+          <img class="logo" src="./assets/Freddys_Logo.svg" alt="freddys logo" />
         </div>
         <input aria-label="username" id="username" type="text" class="input-control" placeholder="Username" required />
         <input aria-label="password" id="password" type="password" class="input-control" placeholder="********"
-          required />
+        required />
         <div class="actions">
-          <button type="submit" class="btn btn-outline">Login</button>
+          <button type="submit" id="login-button" class="btn btn-outline">Login</button>
         </div>
       </form>
     </div>
-  </main>
+  <script src="./Constants.js"></script>
+  <script src="./services/Authservice.js"></script>
+  <script src="./helpers/localStorageHelper.js"></script>
+  <script src="./scripts/login.js"></script>
 </body>
-
 </html>

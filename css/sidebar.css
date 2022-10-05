@@ -1,0 +1,28 @@
+.sidebar{
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid var(--grey-color);
+}
+
+.logo-holder{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+li.menu-item {
+  height: 32px;
+  text-align: center;
+  list-style-type: none;
+  padding: 8px;
+  cursor: pointer;
+}
