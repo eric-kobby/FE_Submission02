@@ -14,7 +14,7 @@
       //persist user token to localstorage
       authService.persistUserToken({ access_token, refresh_token });
       //redirect to dashboard page
-      window.location.href = "../pages/home.html";
+      window.location.href = "../pages/Dashboard.html";
     } catch(error){
       //show an error toast || some logging to sentry
       console.error(error);
