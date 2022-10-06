@@ -1,7 +1,13 @@
 const authService = (function () {
   function AuthService() {
     this.baseUrl = "https://freddy.codesubmit.io";
+    const auth = this;
+    //register logout click
+    document.querySelector('#logout').addEventListener('click', function(){
+      auth.logout();
+    });
   }
+
 
   AuthService.prototype.login = async function (username, password) {
     try {
