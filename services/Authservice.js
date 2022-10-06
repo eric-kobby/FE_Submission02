@@ -3,7 +3,7 @@ const authService = (function () {
     this.baseUrl = "https://freddy.codesubmit.io";
     const auth = this;
     //register logout click
-    document.querySelector('#logout').addEventListener('click', function(){
+    document.querySelector('#logout')?.addEventListener('click', function(){
       auth.logout();
     });
   }
