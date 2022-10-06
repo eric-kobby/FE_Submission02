@@ -36,26 +36,3 @@ div.revenues {
 .chart-section #chart-canvas {
   height: 310px !important;
 }
-
-table {
-  margin-top: 15px;
-  border-collapse: collapse;
-  width: 100%;
-  border: 2px solid var(--grey-color);
-}
-
-tr {
-  height: 50px;
-}
-th {
-  font-weight: 200;
-}
-
-td {
-  font-size: larger;
-}
-
-td, th {
-  text-align: left;
-  padding: 8px;
-}

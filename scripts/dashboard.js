@@ -1,4 +1,4 @@
-( function(){
+(function(){
 
   const toggleSwitch = document.querySelector('#toggle-switch');
   const context = document.querySelector('#chart-canvas').getContext("2d");
@@ -73,6 +73,7 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${seller?.product?.name}</td>
+        <td></td>
         <td>${seller?.units}</td>
         <td>${seller?.revenue}</td>
       `;
@@ -113,8 +114,6 @@
     //fetch dashboard data
     const { sales_over_time_week, sales_over_time_year, bestsellers } = await dataservice.getDashboardData();
     
-    // fetch orders 
-    await dataservice.getOrders();
     // initialize chart 
     const chart = new Chart(context, config);
     

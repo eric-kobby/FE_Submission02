@@ -51,7 +51,7 @@ const authService = (function () {
     if (!userToken) this.logout();
     const { access } = userToken;
     const expiry = new Date(access.expiry);
-    //check if acess_token has expired
+    //check if access_token has expired
     return expiry >= new Date();
   }
 

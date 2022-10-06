@@ -13,5 +13,15 @@ var formatHelper = (function() {
       style: 'currency',
       currency: 'USD' }).format(num);
   }
+
+  /**
+   * 
+   * @param {Date} date 
+   * @returns 
+   */
+  FormatHelper.prototype.formatDate = function(date){
+    return Intl.DateTimeFormat('en-US').format(date);
+  }
+
   return new FormatHelper();
 })();

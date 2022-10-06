@@ -9,7 +9,7 @@ var dataservice = (function (){
    * @param {string} uri 
    */
   Dataservice.prototype.sendRequest = async function(route) {
-    //check if user acces_token has expired
+    //check if user access_token has expired
     if(!authService.isAccessTokenValid()){
       // fetch refresh token
       await authService.refreshToken();
@@ -28,9 +28,9 @@ var dataservice = (function (){
     return dashboard;
   }
 
-  Dataservice.prototype.getOrders = async function() {
-    const orders = await this.sendRequest('/orders?page=20');
-    console.log(orders);
+  Dataservice.prototype.getOrders = async function(page = 1, query='') {
+    const response = await this.sendRequest(`/orders?page=${page}&q=${query}`);
+    return response;
   }
 
   return new Dataservice();
