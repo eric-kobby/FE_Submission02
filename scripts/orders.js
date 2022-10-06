@@ -12,11 +12,11 @@
   function updatePaginationDetails(total, page) {
     const totalPages = Math.ceil(total / PAGE_SIZE);
     if (currentPage === 1) prevAction.classList.add('d-none');
-    if (currentPage === totalPages) nextAction.classList.add('d-none');
+    if (currentPage >= totalPages) nextAction.classList.add('d-none');
     if (currentPage > 1) prevAction.classList.remove('d-none');
     if (currentPage < totalPages) nextAction.classList.remove('d-none');
 
-    totalPagesEl.textContent = totalPages;
+    totalPagesEl.textContent = totalPages === 0 ? currentPage : totalPages;
     currentPageEl.textContent = page;
     currentPage = page;
   }
@@ -90,11 +90,11 @@
 
   document.addEventListener('DOMContentLoaded', async () => {
 
-    search.addEventListener('keyup', debounceQuery(async (e) => {
+    search.addEventListener('input', debounceQuery(async (e) => {
       const { orders, total, page } = await dataservice.getOrders(1, e.target.value);
       renderOrders(mapOrders(orders));
       updatePaginationDetails(total, page);
-    }, 200));
+    }, 500));
 
     prevAction.addEventListener('click', async () => {
       currentPage--;
