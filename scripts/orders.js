@@ -88,6 +88,14 @@
     }
   }
 
+  async function updateUI(pageIndex){
+    const { orders, total, page } = await dataservice.getOrders(pageIndex, search.value);
+    //render orders
+    renderOrders(mapOrders(orders));
+    //update Buttons
+    updatePaginationDetails(total, page);
+  }
+
   document.addEventListener('DOMContentLoaded', async () => {
 
     search.addEventListener('input', debounceQuery(async (e) => {
@@ -96,27 +104,10 @@
       updatePaginationDetails(total, page);
     }, 500));
 
-    prevAction.addEventListener('click', async () => {
-      currentPage--;
-      const { orders, total, page } = await dataservice.getOrders(currentPage, search.value);
-      //render orders
-      renderOrders(mapOrders(orders));
-      //update Buttons
-      updatePaginationDetails(total, page);
-    });
+    prevAction.addEventListener('click', async () => await updateUI(currentPage -= 1));
 
-    nextAction.addEventListener('click', async () => {
-      currentPage++;
-      const { orders, total, page } = await dataservice.getOrders(currentPage, search.value);
-      //render orders
-      renderOrders(mapOrders(orders));
-      updatePaginationDetails(total, page);
-      //update Buttons
-    });
+    nextAction.addEventListener('click', async () => await updateUI(currentPage += 1));
 
-    const { total, orders, page } = await dataservice.getOrders();
-    renderOrders(mapOrders(orders));
-    updatePaginationDetails(total, page);
-
+    updateUI(1);
   });
 })();
